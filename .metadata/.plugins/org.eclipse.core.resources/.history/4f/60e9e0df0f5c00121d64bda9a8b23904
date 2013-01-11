@@ -1,0 +1,16 @@
+package dv8.output;
+
+import java.io.*;
+
+public class ParseAndOutput {
+	public static void main(String[] args){
+		int i1, i2, i3, i4, i5;
+		BufferedReader br = null;
+		try{
+			br = new BufferedReader(new FileReader("C:\\Users\\GAKeener\\Desktop\\Java Experiments\\JavascriptOutputer\\files\\pleaseParseMe.txt"));
+			
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+}

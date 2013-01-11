@@ -1,0 +1,2 @@
+"Item.apple" : "apple"
+"Item.appleGolden" : "gold_apple"

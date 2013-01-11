@@ -1,0 +1,23 @@
+package parse;
+
+import java.io.*;
+public class Main {
+	public static void main(String[] args){
+		
+		try{
+			String strLine;
+			BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\GAKeener\\Desktop\\Java Experiments\\FileParser\\files\\yo.txt"));
+			while((strLine = br.readLine()) != null){
+				println(strLine);
+			}
+			br.close();
+		}catch(IOException e){
+			e.printStackTrace();
+			System.out.println("Didnt work you moron >.>");
+		}
+				
+	}
+	public static void println(String s){
+		System.out.println(s);
+	}
+}

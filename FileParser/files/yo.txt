@@ -1,0 +1,17 @@
+        assemblyTableI("Assembly table I"), 
+        assemblyTableII("Assembly table II"), 
+        assemblyTableIII("Assembly table III"),
+
+        distilIdle("Distillation tower"), 
+        distilActive("Distillation tower active"), 
+        activeSignal("Signal active"),
+
+        oilSands("Oil sands"), 
+        petroleum("Crude oil"),
+
+        railDetLoco("Locomotive detector"), 
+        railDetPassenger("Passenger detector"), 
+        railDetFreight("Freight detector"), 
+        railCoupler("Coupler"),
+
+        trainWorkbench("Train workbench"),
