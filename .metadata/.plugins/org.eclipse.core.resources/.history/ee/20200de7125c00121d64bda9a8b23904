@@ -1,0 +1,20 @@
+package dv8.output;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
+
+public class ParseLib {
+	public static HashMap<String, String> mappings = new HashMap<String, String>();
+	public static void parseTheLib(){
+
+		BufferedReader br = null;
+		try{
+			br = new BufferedReader(new FileReader("C:\\Users\\GAKeener\\Desktop\\Java Experiments\\JavascriptOutputer\\files\\pleaseParseMe.txt"));
+			
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+}

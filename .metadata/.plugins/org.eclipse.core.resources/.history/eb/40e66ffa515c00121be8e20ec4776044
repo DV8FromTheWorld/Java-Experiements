@@ -1,0 +1,20 @@
+package dv8.output;
+
+import java.io.File;
+import java.nio.file.Files;
+
+public class workingDir {
+	public static String currentDir = null;
+	
+	public static void getDir(){
+		File file1 = new File("C:\\Users\\Austin\\Desktop\\Java Experiments\\JavascriptOutputer\\files");
+		File file2 = new File("C:\\Users\\GAKeener\\Desktop\\Java Experiments\\JavascriptOutputer\\files\\");
+		if(file1.exists()){
+			currentDir = "Austin";
+		}else if(file2.exists()){
+			currentDir = "GAKeener";
+		}else{
+			System.out.println("Cannot resolve current dir for working project");
+		}
+	}
+}

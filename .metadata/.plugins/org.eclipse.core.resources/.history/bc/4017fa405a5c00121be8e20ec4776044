@@ -1,0 +1,24 @@
+package dv8.output;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ParseJava {
+	public static void parseTheJava(){
+		int i1, i2, i3, i4, i5;
+		String tier, slot1;
+		String strJava;
+		BufferedReader br = null;
+		try{
+			br = new BufferedReader(new FileReader(workingDir.getDir() + "\\files\\parseMe.txt"));
+			System.out.println(br.readLine());	
+			while((strJava = br.readLine().trim()) != null){
+					tier = strJava.substring((i1=strJava.indexOf("(")), (i2=strJava.indexOf(",", i1)));
+				}
+			br.close();
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+	}
+}

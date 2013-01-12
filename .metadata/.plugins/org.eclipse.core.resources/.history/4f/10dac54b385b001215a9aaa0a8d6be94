@@ -1,0 +1,15 @@
+package parse;
+
+import java.io.*;
+public class Main {
+	public static void main(String[] args){
+		try{
+			BufferedReader br = new BufferedReader(new FileReader(new File("/C:/Users/GAKeener/Desktop/Java Experiments/FileParser/files/yo.txt").getAbsolutePath()));
+			
+			br.close();
+		}catch(IOException e){
+			e.printStackTrace();
+		}
+				
+	}
+}
