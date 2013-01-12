@@ -3,9 +3,11 @@ package dv8.output;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashSet;
 
 public class ParseJava {
 	private static String strJava;
+	public static HashSet<String[]> convertedRecipeSet = new HashSet<String[]>();
 	
 	public static void parseTheJava(){
 		int iTier, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, iOutput, iAmount;
@@ -73,11 +75,31 @@ public class ParseJava {
 	
 	private static void convertToMappingFormat(String[] recipeArr){
 		String[] convertedRecipeArr = new String[13];
-		for(int i=0; i<2; i++){
+		String itemName, damage, amount;
+		int nameEnd, damageEnd;
+		int i = 0;
+		while(i <= 12){
 			recipeArr[i].trim();
 			if(recipeArr[i].contains("null")){
 				convertedRecipeArr[i] = "";
+			}else if(recipeArr[i].contains("new ItemStack(")){
+				itemName = recipeArr[i].substring(recipeArr[i].indexOf("(")+1, (nameEnd=recipeArr[i].indexOf(",")));
+				System.out.println(itemName);
+				if(recipeArr[i].indexOf(",", nameEnd+1) != -1){
+					System.out.println("Lots o damage");
+				}else{
+					//System.out.println("No damage");
+					
+				}
+			
 			}
+			i++;
 		}
+		
+		convertedRecipeSet.add(convertedRecipeArr);
+	}
+	
+	public static HashSet<String[]> getRecipeSet(){
+		return convertedRecipeSet;
 	}
 }
