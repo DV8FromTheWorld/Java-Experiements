@@ -31,20 +31,20 @@ public class ParseJava {
 					recipe[11] = strJava.substring(iOutput+2, (iAmount=getProperIndex(iOutput)));
 					recipe[12] = strJava.substring(iAmount+2, (strJava.indexOf(";")-1));
 					
-					/*System.out.println(recipe[0]);
-					System.out.println(recipe[1]);
-					System.out.println(recipe[2]);
-					System.out.println(recipe[3]);
-					System.out.println(recipe[4]);
-					System.out.println(recipe[5]);
-					System.out.println(recipe[6]);
-					System.out.println(recipe[7]);
-					System.out.println(recipe[8]);
-					System.out.println(recipe[9]);
-					System.out.println(recipe[10]);
-					System.out.println(recipe[11]);
-					System.out.println(recipe[12]);
-					System.out.println("---------------------------");**/
+				//	System.out.println(recipe[0]);
+				//	System.out.println(recipe[1]);
+				//	System.out.println(recipe[2]);
+				//	System.out.println(recipe[3]);
+				//	System.out.println(recipe[4]);
+				//	System.out.println(recipe[5]);
+				//	System.out.println(recipe[6]);
+				//	System.out.println(recipe[7]);
+				//	System.out.println(recipe[8]);
+				//	System.out.println(recipe[9]);
+				//	System.out.println(recipe[10]);
+				//	System.out.println(recipe[11]);
+				//	System.out.println(recipe[12]);
+				//	System.out.println("---------------------------");
 					convertToMappingFormat(recipe);
 				}
 			br.close();
@@ -74,28 +74,19 @@ public class ParseJava {
 	}
 	
 	private static void convertToMappingFormat(String[] recipeArr){
-		String[] convertedRecipeArr = new String[13];
-		String itemName, damage, amount;
-		int nameEnd, damageEnd;
 		int i = 0;
-		while(i <= 12){
-			recipeArr[i].trim();
-			if(recipeArr[i].contains("null")){
-				convertedRecipeArr[i] = "";
-			}else if(recipeArr[i].contains("new ItemStack(")){
-				itemName = recipeArr[i].substring(recipeArr[i].indexOf("(")+1, (nameEnd=recipeArr[i].indexOf(",")));
-				System.out.println(itemName);
-				if(recipeArr[i].indexOf(",", nameEnd+1) != -1){
-					System.out.println("Lots o damage");
-				}else{
-					//System.out.println("No damage");
-					
-				}
-			
+		String tempStr = "bob";
+		String[] convertedRecipeArr = new String[13];
+		for(String  item : recipeArr){
+			if(i == 0 || i == 12){
+				convertedRecipeArr[i] = recipeArr[i];
+			}else if(item.contains("new ItemStack")){
+				System.out.println(item);
+				tempStr = item.substring(item.indexOf("(")+1);
 			}
+			System.out.println(tempStr + " ");
 			i++;
 		}
-		
 		convertedRecipeSet.add(convertedRecipeArr);
 	}
 	
