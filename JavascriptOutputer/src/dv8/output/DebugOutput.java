@@ -9,7 +9,7 @@ public class DebugOutput {
 				//if(Main.runArgs[0].equals("1") || Main.runArgs[0].equals("2") || Main.runArgs[0].equals("3")){
 					//if(Main.run)
 					enabled = true;
-					debugLevel = 1;
+					debugLevel = 2;
 					out("Debug Enabled.  Debug output level : " + debugLevel , 1);
 				//}
 			//}

@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 
 //Where the magic is given life
 public class ParseJava {
@@ -101,7 +100,7 @@ public class ParseJava {
 				}
 				
 				if((itemNameConverted = ParseLib.getFromLib(itemName + " " + itemDamage)) != null){
-					DebugOutput.out(itemName + DebugOutput.compensateAndSpace((itemName).length()) +" found in lib   " + itemNameConverted, 2);
+					DebugOutput.out(itemName + DebugOutput.compensateAndSpace((itemName).length()) +" found in lib   " + itemNameConverted, 3);
 					convertedRecipeArr[i] = (itemNameConverted + " " + itemAmount);
 				}else{
 					DebugOutput.out("=====Could not located \"" + itemName + "\" in libs.======", 1);
