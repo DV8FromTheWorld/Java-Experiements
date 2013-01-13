@@ -44,7 +44,7 @@ public class FileCreator {
 				}
 			}else{
 				System.out.println("Could not delete file : \n" + recipeFile.getAbsolutePath() + 
-						"\n when attempting to write recipe for : " + recipeName + " to a file");
+						"\n when attempting to write recipe for : " + recipeName);
 				return null;
 			}
 		}else{

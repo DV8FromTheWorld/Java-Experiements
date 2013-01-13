@@ -1,5 +1,8 @@
 package dv8.output;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 //Where the magic is completed
 public class JavascriptOutput {
 	
@@ -24,26 +27,28 @@ public class JavascriptOutput {
 					recipe[i] = "\"\",\n";
 				}
 			}
-			
-			System.out.println("=================  " + outputName +"  =================");
-			System.out.print(
-					"<script type=\"text/javascript\">\n"+
-					recipe[0] +
-					recipe[1] +
-					recipe[2] +
-					recipe[3] +
-					recipe[4] +
-					recipe[5] +
-					recipe[6] +
-					recipe[7] +
-					recipe[8] +
-					recipe[9] +
-					recipe[10] +
-					recipe[11] +
-					")\n" +
-					"</script>");
-			System.out.println();
-			System.out.println();
+			try{
+				BufferedWriter out = new BufferedWriter(new FileWriter(FileCreator.mkFile(outputName)));
+				out.write(
+						"<script type=\"text/javascript\">\n"+
+						recipe[0] +
+						recipe[1] +
+						recipe[8] +
+						recipe[9] +
+						recipe[10] +
+						recipe[2] +
+						recipe[3] +
+						recipe[6] +
+						recipe[7] +
+						recipe[5] +
+						recipe[4] +
+						recipe[11] +
+						")\n" +
+						"</script>");
+				out.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
 	

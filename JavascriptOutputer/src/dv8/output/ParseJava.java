@@ -17,6 +17,7 @@ public class ParseJava {
 		try{
 			br = new BufferedReader(new FileReader(workingDir.getDir() + "\\files\\parseMe.txt"));
 				while((strJava = br.readLine()) != null){
+					
 					strJava = strJava.trim();
 					recipe[0] = strJava.substring((iTier=strJava.indexOf("(")+1), (i1=strJava.indexOf(",", iTier)));
 					recipe[1] = strJava.substring(i1+2, (i2=getProperIndex(i1)));
@@ -96,7 +97,7 @@ public class ParseJava {
 				}else{
 					itemAmount = recipeArr[i].substring(recipeArr[i].indexOf(",")+1, recipeArr[i].length()-1);
 					itemDamage = "-1";
-					itemAmount = itemAmount.trim();
+					itemAmount = itemAmount.trim();;
 				}
 				
 				if((itemNameConverted = ParseLib.getFromLib(itemName + " " + itemDamage)) != null){

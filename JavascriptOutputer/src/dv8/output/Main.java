@@ -9,8 +9,7 @@ public class Main {
 		runArgs[0] = "2";
 		DebugOutput.init();
 		if(FileCreator.createRecipeDir()){
-			System.out.println(FileCreator.mkFile("yo"));
-			/*if(workingDir.getDir() !=null){
+			if(workingDir.getDir() !=null){
 				System.out.println("Beginning Lib parsing...");
 				ParseLib.parseTheLib();
 				System.out.println("Lib parsing complete. Beginning Java parsing...");
@@ -20,7 +19,7 @@ public class Main {
 				System.out.println("Congratz, all done!");
 			}else{
 				System.out.println("Did not parse libs nor java");
-			}*/
+			}
 		}
 		
 	}
