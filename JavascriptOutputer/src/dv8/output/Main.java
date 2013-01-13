@@ -20,7 +20,6 @@ public class Main {
 			}else{
 				System.out.println("Did not parse libs nor java");
 			}
-		}
-		
+		}	
 	}
 }

@@ -20,7 +20,7 @@ public class ParseLib {
 				int javaStart, javaStop, damageStart, damageStop, wikiStart;
 				currentLine++;
 				if(strLine.indexOf("\"") == -1){
-					
+					//used to skip completely blank lines
 				}else{
 				javaCode = strLine.substring((javaStart= (strLine.indexOf("\"")+1)), (javaStop = (strLine.indexOf("\"", (javaStart)))));
 				if(strLine.indexOf(",") != -1){

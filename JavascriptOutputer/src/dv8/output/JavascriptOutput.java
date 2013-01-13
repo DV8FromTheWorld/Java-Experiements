@@ -51,12 +51,4 @@ public class JavascriptOutput {
 			}
 		}
 	}
-	
-	public static String space(int i){
-		String spacing = "";
-		for(int j = 1; j <= i; j++){
-			spacing = spacing + " ";
-		}
-		return spacing;		
-	}
 }

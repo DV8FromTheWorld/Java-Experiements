@@ -33,29 +33,11 @@ public class ParseJava {
 					recipe[11] = strJava.substring(iOutput+2, (iAmount=getProperIndex(iOutput)));
 					recipe[12] = strJava.substring(iAmount+2, (strJava.indexOf(";")-1));
 					
-				/*	for(String bob : recipe)
-						System.out.println(bob);  **/
-					
-				//	System.out.println(recipe[0]);
-				//	System.out.println(recipe[1]);
-				//	System.out.println(recipe[2]);
-				//	System.out.println(recipe[3]);
-				//	System.out.println(recipe[4]);
-				//	System.out.println(recipe[5]);
-				//	System.out.println(recipe[6]);
-				//	System.out.println(recipe[7]);
-				//	System.out.println(recipe[8]);
-				//	System.out.println(recipe[9]);
-				//	System.out.println(recipe[10]);
-				//	System.out.println(recipe[11]);
-				//	System.out.println(recipe[12]);
-				//	System.out.println("---------------------------");
 					convertToMappingFormat(recipe);
 				}
 			br.close();
 		}catch(IOException e){
 			System.out.println("Could not located the parseMe.txt file.  Please make sure that it exists in the \"files\" folder");
-
 		}
 	}
 	
@@ -68,7 +50,6 @@ public class ParseJava {
 				index1 = strJava.indexOf("),", failSafeIndex + 2);
 			}
 		}		
-		//System.out.println(index1 + " " + index2 + " " + failSafeIndex);
 		if(index1 == -1){
 			return index2 + 4;
 		}else if(index2 == -1){
@@ -99,7 +80,6 @@ public class ParseJava {
 					itemDamage = "-1";
 					itemAmount = itemAmount.trim();;
 				}
-				
 				if((itemNameConverted = ParseLib.getFromLib(itemName + " " + itemDamage)) != null){
 					DebugOutput.out(itemName + DebugOutput.compensateAndSpace((itemName).length()) +" found in lib   " + itemNameConverted, 3);
 					convertedRecipeArr[i] = (itemNameConverted + " " + itemAmount);
