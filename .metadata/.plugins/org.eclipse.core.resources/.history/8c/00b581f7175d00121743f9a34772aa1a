@@ -1,0 +1,7 @@
+package dv8.output;
+
+public class DebugOutput {
+	public static void out(String s){
+
+	}
+}

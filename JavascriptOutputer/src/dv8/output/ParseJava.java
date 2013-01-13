@@ -3,11 +3,12 @@ package dv8.output;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class ParseJava {
 	private static String strJava;
-	public static HashSet<String[]> convertedRecipeSet = new HashSet<String[]>();
+	public static ArrayList<String[]> convertedRecipeList = new ArrayList<String[]>();
 	
 	public static void parseTheJava(){
 		int iTier, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, iOutput, iAmount;
@@ -16,7 +17,7 @@ public class ParseJava {
 		try{
 			br = new BufferedReader(new FileReader(workingDir.getDir() + "\\files\\parseMe.txt"));
 				while((strJava = br.readLine()) != null){
-					strJava.trim();
+					strJava = strJava.trim();
 					recipe[0] = strJava.substring((iTier=strJava.indexOf("(")+1), (i1=strJava.indexOf(",", iTier)));
 					recipe[1] = strJava.substring(i1+2, (i2=getProperIndex(i1)));
 					recipe[2] = strJava.substring(i2+2, (i3=getProperIndex(i2)));
@@ -30,6 +31,9 @@ public class ParseJava {
 					recipe[10] = strJava.substring(i10+2, (iOutput=getProperIndex(i10)));
 					recipe[11] = strJava.substring(iOutput+2, (iAmount=getProperIndex(iOutput)));
 					recipe[12] = strJava.substring(iAmount+2, (strJava.indexOf(";")-1));
+					
+				/*	for(String bob : recipe)
+						System.out.println(bob);  **/
 					
 				//	System.out.println(recipe[0]);
 				//	System.out.println(recipe[1]);
@@ -49,48 +53,68 @@ public class ParseJava {
 				}
 			br.close();
 		}catch(IOException e){
-			e.printStackTrace();
+			System.out.println("Could not located the parseMe.txt file.  Please make sure that it exists in the \"files\" folder");
+
 		}
 	}
 	
 	private static int getProperIndex(int startIndex){
 		int failSafeIndex = strJava.indexOf("(),", startIndex);
 		int index1 = strJava.indexOf("),", startIndex);
-		int index2 = strJava.indexOf("l,", startIndex);
+		int index2 = strJava.indexOf("null,", startIndex);
 		if(failSafeIndex != -1){
 			if(failSafeIndex < index1){
 				index1 = strJava.indexOf("),", failSafeIndex + 2);
 			}
 		}		
+		//System.out.println(index1 + " " + index2 + " " + failSafeIndex);
 		if(index1 == -1){
-			return index2 + 1;
+			return index2 + 4;
 		}else if(index2 == -1){
 			return index1 + 1;
 		}else if(index1 < index2){
 			return index1 + 1;
 		}else{
-			return index2 + 1;
+			return index2 + 4;
 		}
 	}
 	
 	private static void convertToMappingFormat(String[] recipeArr){
-		int i = 0;
-		String tempStr = "bob";
-		String[] convertedRecipeArr = new String[13];
-		for(String  item : recipeArr){
-			if(i == 0 || i == 12){
-				convertedRecipeArr[i] = recipeArr[i];
-			}else if(item.contains("new ItemStack")){
-				System.out.println(item);
-				tempStr = item.substring(item.indexOf("(")+1);
+		String[] convertedRecipeArr= new String[13];
+		for(int i=0; i<=(recipeArr.length-1); i++){
+			String itemName, itemAmount, itemDamage, itemNameConverted;
+			int nameEnd, amountEnd;
+			if(recipeArr[i].contains("null")){
+				convertedRecipeArr[i] = null;
+			}else if(recipeArr[i].contains("new ItemStack")){
+				itemName = recipeArr[i].substring(recipeArr[i].indexOf("(")+1, (nameEnd=recipeArr[i].indexOf(",")));		
+				if(recipeArr[i].indexOf(",", nameEnd+1) !=-1){
+					itemAmount = recipeArr[i].substring((recipeArr[i].indexOf(",", nameEnd)+1), (amountEnd=recipeArr[i].indexOf(",", nameEnd+1)));
+					itemDamage = recipeArr[i].substring((amountEnd+1), recipeArr[i].indexOf(")"));
+					itemAmount = itemAmount.trim();
+					itemDamage = itemDamage.trim();
+				}else{
+					itemAmount = recipeArr[i].substring(recipeArr[i].indexOf(",")+1, recipeArr[i].length()-1);
+					itemDamage = "-1";
+					itemAmount = itemAmount.trim();
+				}
+				
+				if((itemNameConverted = ParseLib.getFromLib(itemName + " " + itemDamage)) != null){
+					DebugOutput.out(itemName + DebugOutput.compensateAndSpace((itemName).length()) +" found in lib   " + itemNameConverted, 2);
+					convertedRecipeArr[i] = (itemNameConverted + " " + itemAmount);
+				}else{
+					DebugOutput.out("=====Could not located \"" + itemName + "\" in libs.======", 1);
+				}
+			}else if(i == 0 || i == 12){	//index 0 and 12 are the Tier and outputAmount respectively, which are always numbers.
+				convertedRecipeArr[i] = recipeArr[i];			
+			}else{
+				System.out.println("Unhandled string type.  Was not index 0 nor 12.  Was not handled by the Null check nor the ItemStack check");
 			}
-			System.out.println(tempStr + " ");
-			i++;
 		}
-		convertedRecipeSet.add(convertedRecipeArr);
+		convertedRecipeList.add(convertedRecipeArr);
 	}
 	
-	public static HashSet<String[]> getRecipeSet(){
-		return convertedRecipeSet;
+	public static ArrayList<String[]> getRecipeSet(){
+		return convertedRecipeList;
 	}
 }

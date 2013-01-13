@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class ParseLib {
-	public static HashMap<String, String[]> mappings = new HashMap<String, String[]>();
+	public static HashMap<String, String> mappings = new HashMap<String, String>();
 	
 	public static void parseTheLib(){
 		String strLine;
@@ -27,24 +27,25 @@ public class ParseLib {
 					wikiMappings = strLine.substring((wikiStart =(strLine.indexOf("\"", damageStop + 1)+1)), (strLine.indexOf("\"", (wikiStart + 1))));
 				}else{
 					wikiMappings = strLine.substring((wikiStart =(strLine.indexOf("\"", javaStop + 1)+1)), (strLine.indexOf("\"", (wikiStart + 1))));
-					damageValue=null;
+					damageValue="-1";
 				}
 					if(javaCode == null){
-						System.out.println("Error with java code namings on line: " + currentLine);
+						DebugOutput.out("Error with java code namings on line: " + currentLine, 1);
 					}else if(wikiMappings == null){
-						System.out.println("Error with wiki namings on line : " + currentLine);
+						DebugOutput.out("Error with wiki namings on line : " + currentLine, 1);
 					}else{
-						mappings.put(javaCode, new String[] {wikiMappings, damageValue});
+						wikiMappings = wikiMappings.toLowerCase();
+						mappings.put((javaCode + " " + damageValue), wikiMappings);
 					}
 				}
 			}
 			br.close();
 		}catch(IOException e){
-			e.printStackTrace();
+			System.out.println("Could not located the mappingLibs.txt file.  Please make sure that it exists in the \"files\" folder");
 		}
 	}
 	
-	public static String[] getFromLib(String key){
+	public static String getFromLib(String key){
 		return mappings.get(key);
 	}
 }
