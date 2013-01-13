@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+//Where the magic is given life
 public class ParseJava {
 	private static String strJava;
 	public static ArrayList<String[]> convertedRecipeList = new ArrayList<String[]>();

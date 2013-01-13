@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+//Where the magic begins
 public class ParseLib {
 	public static HashMap<String, String> mappings = new HashMap<String, String>();
 	

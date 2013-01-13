@@ -9,7 +9,7 @@ public class DebugOutput {
 				//if(Main.runArgs[0].equals("1") || Main.runArgs[0].equals("2") || Main.runArgs[0].equals("3")){
 					//if(Main.run)
 					enabled = true;
-					debugLevel = 2;
+					debugLevel = 1;
 					out("Debug Enabled.  Debug output level : " + debugLevel , 1);
 				//}
 			//}
@@ -23,13 +23,7 @@ public class DebugOutput {
 			System.out.println(s);
 		}
 	}
-	public static String space(int i){
-		String spacing = "";
-		for(int j = 1; j <= i; j++){
-			spacing = spacing + " ";
-		}
-		return spacing;		
-	}
+
 	public static String compensateAndSpace(int i){
 		String bob = "";
 		for(int j = (50 - i); j >=0; j--){
