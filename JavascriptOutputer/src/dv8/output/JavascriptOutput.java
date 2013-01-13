@@ -31,16 +31,17 @@ public class JavascriptOutput {
 				BufferedWriter out = new BufferedWriter(new FileWriter(FileCreator.mkFile(outputName)));
 				out.write(
 						"<script type=\"text/javascript\">\n"+
+						"tierCraft(\n"+
 						recipe[0] +
 						recipe[1] +
-						recipe[8] +
-						recipe[9] +
+						recipe[5] +
+						recipe[6] +
 						recipe[10] +
+						recipe[9] +
+						recipe[7] +
+						recipe[8] +
 						recipe[2] +
 						recipe[3] +
-						recipe[6] +
-						recipe[7] +
-						recipe[5] +
 						recipe[4] +
 						recipe[11] +
 						")\n" +

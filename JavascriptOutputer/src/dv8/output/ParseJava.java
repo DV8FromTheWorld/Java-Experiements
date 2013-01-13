@@ -10,7 +10,7 @@ public class ParseJava {
 	private static String strJava;
 	public static ArrayList<String[]> convertedRecipeList = new ArrayList<String[]>();
 	
-	public static void parseTheJava(){
+	public static boolean parseTheJava(){
 		int iTier, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, iOutput, iAmount;
 		String[] recipe = new String[13];
 		BufferedReader br = null;
@@ -36,8 +36,10 @@ public class ParseJava {
 					convertToMappingFormat(recipe);
 				}
 			br.close();
+			return true;
 		}catch(IOException e){
-			System.out.println("Could not located the parseMe.txt file.  Please make sure that it exists in the \"files\" folder");
+			DebugOutput.out("Could not located the parseMe.txt file.  Please make sure that it exists in the \"files\" folder", 0);
+			return false;
 		}
 	}
 	
@@ -89,7 +91,7 @@ public class ParseJava {
 			}else if(i == 0 || i == 12){	//index 0 and 12 are the Tier and outputAmount respectively, which are always numbers.
 				convertedRecipeArr[i] = recipeArr[i];			
 			}else{
-				System.out.println("Unhandled string type.  Was not index 0 nor 12.  Was not handled by the Null check nor the ItemStack check");
+				DebugOutput.out("Unhandled string type.  Was not index 0 nor 12.  Was not handled by the Null check nor the ItemStack check", 0);
 			}
 		}
 		convertedRecipeList.add(convertedRecipeArr);

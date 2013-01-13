@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class ParseLib {
 	public static HashMap<String, String> mappings = new HashMap<String, String>();
 	
-	public static void parseTheLib(){
+	public static boolean parseTheLib(){
 		String strLine;
 		String javaCode, wikiMappings, damageValue;
 		int currentLine = 0;
@@ -37,12 +37,15 @@ public class ParseLib {
 					}else{
 						wikiMappings = wikiMappings.toLowerCase();
 						mappings.put((javaCode + " " + damageValue), wikiMappings);
+						DebugOutput.out("Added to Lib:    key:  " + (javaCode)  , 3);
 					}
 				}
 			}
 			br.close();
+			return true;
 		}catch(IOException e){
-			System.out.println("Could not located the mappingLibs.txt file.  Please make sure that it exists in the \"files\" folder");
+			DebugOutput.out("Could not located the mappingLibs.txt file.  Please make sure that it exists in the \"files\" folder", 0);
+			return false;
 		}
 	}
 	

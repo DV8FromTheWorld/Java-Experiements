@@ -18,7 +18,7 @@ public class FileCreator {
 				DebugOutput.out("Successfully created the Recipe Directory.", 2);
 				return true;				
 			}else{
-				System.out.println("Could not create the Recipe Directory");
+				DebugOutput.out("Could not create the Recipe Directory", 0);
 				return false;
 			}
 		}
@@ -37,14 +37,13 @@ public class FileCreator {
 						return null;
 					}
 				} catch (IOException e) {
-					System.out.println("Could not create file :" + recipeFile.getAbsolutePath());
-					System.out.println("IOException caused by recipeFile.createNewFile()    First try catch block.");
+					DebugOutput.out("Could not create file :" + recipeFile.getAbsolutePath(), 0);
+					DebugOutput.out("IOException caused by recipeFile.createNewFile()    First try catch block.", 0);
 					e.printStackTrace();
 					return null;
 				}
 			}else{
-				System.out.println("Could not delete file : \n" + recipeFile.getAbsolutePath() + 
-						"\n when attempting to write recipe for : " + recipeName);
+				DebugOutput.out("Could not delete file : \n" + recipeFile.getAbsolutePath() + " when attempting to write recipe for : " + recipeName, 0);
 				return null;
 			}
 		}else{
@@ -53,12 +52,12 @@ public class FileCreator {
 					DebugOutput.out("Successfully created file : " + recipeFile.getAbsolutePath(), 3);
 					return recipeFile;
 				}else{
-					System.out.println("Could not create file :" + recipeFile.getAbsolutePath());
+					DebugOutput.out("Could not create file :" + recipeFile.getAbsolutePath(), 0);
 					return null;
 				}
 			} catch (IOException e) {
-				System.out.println("Could not create file :" + recipeFile.getAbsolutePath());
-				System.out.println("IOException caused by recipeFile.createNewFile()    Second try catch block.");
+				DebugOutput.out("Could not create file :" + recipeFile.getAbsolutePath(), 0);
+				DebugOutput.out("IOException caused by recipeFile.createNewFile()    Second try catch block.", 0);
 				e.printStackTrace();
 				return null;
 			}
