@@ -4,27 +4,36 @@ public class Main {
 	
 	public static String[] runArgs = new String[3];
 	
-	public static void main(String[] args){
-		runArgs = args;
+	public static void main(String[] args) throws InterruptedException{
 		DebugOutput.init();
-		Config.load();
-		if(FileCreator.createRecipeDir()){
-			if(workingDir.getDir() !=null){
-				print("Beginning Lib parsing...");
-				if(ParseLib.parseTheLib()){
-					print("Lib parsing complete. Beginning Java parsing...");
-					if(ParseJava.parseTheJava()){
-						print("Java parsing complete.  Beginning Javascript output...");
-						JavascriptOutput.outputJavascript();
-						print("Congratz, all done!");
-						
-					}
+		if(FileCreator.createDir(FileCreator.filesDir)){
+			if(Config.load()){
+				if(!Config.firstRun){
+					print("Beginning Lib parsing...");
+					if(ParseLib.parseTheLib()){
+						print("Lib parsing complete. Beginning Java parsing...");
+						if(FileCreator.createDir(FileCreator.recipeDir)){
+							if(ParseJava.parseTheJava()){
+								print("Java parsing complete.  Beginning Javascript output...");
+								JavascriptOutput.outputJavascript();
+								print("Congratz, all done!");
+							}
+						}
+					}	
+				}else{
+					DebugOutput.out(
+							"\n\n"+
+							"#########################################################################\n"+
+							"Program stopping due to this being the first run.\n" +
+							"Please check that the config options are to your liking before rerunning.\n" +
+							"Config location: " + Config.configFile.getAbsolutePath()+"\n"+
+							"#########################################################################", 0);
+					Thread.sleep(15000);
 				}
-			}else{
-				print("Did not parse libs nor java");
-			}
+			}	
 		}	
 	}
+	
 	public static void print(String s){
 		String hashMarkSpacer = "";
 		for(int i=0; i< s.length(); i++){

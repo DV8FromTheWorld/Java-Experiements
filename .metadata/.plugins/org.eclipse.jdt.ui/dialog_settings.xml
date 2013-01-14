@@ -15,12 +15,13 @@
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="FatJarPackageWizard">
-		<item value="C:\Users\GAKeener\Desktop\bob.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
-		<item value="Main - FileParser" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="C:\Users\GAKeener\Desktop\Java Experiments" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="C:\Users\Austin\Desktop\bob.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="Main (1) - JavascriptOutputer" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="C:\Users\GAKeener\Desktop\Java Experiments.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\Austin\Desktop\bob.jar"/>
 			<item value="C:\Users\GAKeener\Desktop\bob.jar"/>
 		</list>
 		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
@@ -28,11 +29,11 @@
 			<item value=".xml"/>
 		</list>
 	</section>
-	<section name="quick_assist_proposal_size">
-	</section>
 	<section name="NewClassWizardPage">
 		<item value="false" key="create_constructor"/>
-		<item value="true" key="create_unimplemented"/>
 		<item value="false" key="create_main"/>
+		<item value="true" key="create_unimplemented"/>
+	</section>
+	<section name="quick_assist_proposal_size">
 	</section>
 </section>

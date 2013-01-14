@@ -1,10 +1,10 @@
 package dv8.output;
 
-import java.io.BufferedWriter;
+//import java.io.BufferedWriter;
 
 public class DebugOutput {
 	private static int debugLevel;
-	private static BufferedWriter br;
+	//private static BufferedWriter br;
 	
 	public static void init(){
 		try{

@@ -28,7 +28,7 @@ public class JavascriptOutput {
 				}
 			}
 			try{
-				BufferedWriter out = new BufferedWriter(new FileWriter(FileCreator.mkFile(outputName)));
+				BufferedWriter out = new BufferedWriter(new FileWriter(FileCreator.mkFile(outputName, true)));
 				out.write(
 						"<script type=\"text/javascript\">\n"+
 						"tierCraft(\n"+
