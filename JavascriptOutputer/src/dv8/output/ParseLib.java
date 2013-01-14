@@ -15,7 +15,7 @@ public class ParseLib {
 		int currentLine = 0;
 		BufferedReader br = null;
 		try{
-			br = new BufferedReader(new FileReader(workingDir.getDir() + "\\files\\mappingLibs.txt"));
+			br = new BufferedReader(new FileReader(FileCreator.filesDir + "\\" + Config.LibsFileName));
 			while((strLine = br.readLine()) != null){
 				int javaStart, javaStop, damageStart, damageStop, wikiStart;
 				currentLine++;
@@ -44,7 +44,7 @@ public class ParseLib {
 			br.close();
 			return true;
 		}catch(IOException e){
-			DebugOutput.out("Could not located the mappingLibs.txt file.  Please make sure that it exists in the \"files\" folder", 0);
+			DebugOutput.out("Could not located the " +Config.LibsFileName+ " file.  Please make sure that it exists in the \"files\" folder", 0);
 			return false;
 		}
 	}

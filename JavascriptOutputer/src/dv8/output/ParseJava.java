@@ -15,7 +15,7 @@ public class ParseJava {
 		String[] recipe = new String[13];
 		BufferedReader br = null;
 		try{
-			br = new BufferedReader(new FileReader(workingDir.getDir() + "\\files\\parseMe.txt"));
+			br = new BufferedReader(new FileReader(FileCreator.filesDir + "\\"+ Config.JavaFileName));
 				while((strJava = br.readLine()) != null){
 					
 					strJava = strJava.trim();
@@ -38,7 +38,7 @@ public class ParseJava {
 			br.close();
 			return true;
 		}catch(IOException e){
-			DebugOutput.out("Could not located the parseMe.txt file.  Please make sure that it exists in the \"files\" folder", 0);
+			DebugOutput.out("Could not located the "+Config.JavaFileName+ " file.  Please make sure that it exists in the \"files\" folder", 0);
 			return false;
 		}
 	}

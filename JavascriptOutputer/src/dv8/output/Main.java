@@ -1,12 +1,13 @@
 package dv8.output;
 
+import java.io.IOException;
+
 public class Main {
 	
 	public static String[] runArgs = new String[3];
 	
-	public static void main(String[] args) throws InterruptedException{
-		DebugOutput.init();
-		if(FileCreator.createDir(FileCreator.filesDir)){
+	public static void main(String[] args) throws InterruptedException, IOException{
+		if(DebugOutput.init()){
 			if(Config.load()){
 				if(!Config.firstRun){
 					print("Beginning Lib parsing...");
@@ -17,9 +18,17 @@ public class Main {
 								print("Java parsing complete.  Beginning Javascript output...");
 								JavascriptOutput.outputJavascript();
 								print("Congratz, all done!");
+								Thread.sleep(15000);
+								DebugOutput.log.close();
+							}else{
+								Thread.sleep(15000);
 							}
+						}else{
+							Thread.sleep(15000);
 						}
-					}	
+					}else{
+						Thread.sleep(15000);
+					}
 				}else{
 					DebugOutput.out(
 							"\n\n"+
@@ -30,8 +39,12 @@ public class Main {
 							"#########################################################################", 0);
 					Thread.sleep(15000);
 				}
-			}	
-		}	
+			}else{
+				Thread.sleep(15000);
+			}
+		}else{
+			Thread.sleep(15000);
+		}
 	}
 	
 	public static void print(String s){

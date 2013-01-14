@@ -1,7 +1,7 @@
 # Lines that start with a "#" are ignored.
 #
 # If verbose is enabled, lots more info is put out.  Very helpful.
-DebugVerbose: false
+DebugVerbose: true
 #
 # Defines the file that contains the java recipes.
 JavaFile: parseMe.txt

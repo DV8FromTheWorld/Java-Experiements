@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class FileCreator {
 	
-	public static File filesDir = new File(workingDir.getDir() + "\\files\\");
+	public static File filesDir = new File(getCurrentDir() + "\\files\\");
 	public static File recipeDir = new File(filesDir.getAbsolutePath() + "\\recipes\\");
 	
 	public static boolean createFilesDir(){
@@ -72,5 +72,9 @@ public class FileCreator {
 				return null;
 			}
 		}
+	}
+	
+	public static String getCurrentDir(){
+		return new File("").getAbsolutePath();
 	}
 }
