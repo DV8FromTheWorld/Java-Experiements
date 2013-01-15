@@ -18,15 +18,18 @@ public class Main {
 								print("Java parsing complete.  Beginning Javascript output...");
 								JavascriptOutput.outputJavascript();
 								print("Congratz, all done!");
-								Thread.sleep(15000);
 								DebugOutput.log.close();
-							}else{
 								Thread.sleep(15000);
+							}else{
+								DebugOutput.log.close();
+								Thread.sleep(15000);		
 							}
 						}else{
+							DebugOutput.log.close();
 							Thread.sleep(15000);
 						}
 					}else{
+						DebugOutput.log.close();
 						Thread.sleep(15000);
 					}
 				}else{
@@ -37,12 +40,15 @@ public class Main {
 							"Please check that the config options are to your liking before rerunning.\n" +
 							"Config location: " + Config.configFile.getAbsolutePath()+"\n"+
 							"#########################################################################", 0);
+					DebugOutput.log.close();
 					Thread.sleep(15000);
 				}
 			}else{
+				DebugOutput.log.close();
 				Thread.sleep(15000);
 			}
 		}else{
+			DebugOutput.log.close();
 			Thread.sleep(15000);
 		}
 	}
