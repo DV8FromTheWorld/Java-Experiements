@@ -3,3 +3,6 @@
 .history/
 recipes/
 .metadata/
+
+log.txt
+config.txt
