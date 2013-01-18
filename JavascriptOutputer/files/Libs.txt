@@ -326,7 +326,7 @@
 "BlockIDs.distilActive.block" : "distil_on"
 "BlockIDs.activeSignal.block" : "signal_on"
 "BlockIDs.oilSands.block" : "oil_sands"
-"BlockIDs.petroleum.block" : "oil_sands"
+"BlockIDs.petroleum.block" : "crude_oil"
 "BlockIDs.railDetLoco.block" : "rail_detector_loco"
 "BlockIDs.railDetPassenger.block" : "rail_detector_passenger"
 "BlockIDs.railDetFreight.block" : "rail_detector_freight"

@@ -52,7 +52,7 @@ public class Config {
 					"JavaFile: parseMe.txt\n"+
 					"#\n"+
 					"# Defines the file that contains the libs to convert from java to javascript.\n"+
-					"Libs: mappingLibs.txt"
+					"Libs: Libs.txt"
 					);
 			out.close();
 			return true;
